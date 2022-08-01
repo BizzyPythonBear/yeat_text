@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Yeat Text</title>
+</head>
+<body>
+	<h1>Yeat Text</h1>
+	<input id="yeatInput">
+	<button type="submit" onclick="toyeat()">Convert to yeat</button>
+	<h3>Output: <span id="output"></span></h3>
+	<script>
+		let umlauts = ["ä", "ü", "ï", "ö", "ë", "ÿ"]
+
+		function toyeat() {
+			let value = 0
+			let toyeattext = document.getElementById("yeatInput").value;
+			// Split text into array
+			let yeattextarray = toyeattext.split("");
+			for (let i = 0; i < yeattextarray.length; i++) {
+				if (yeattextarray[i] == "a") {
+					yeattextarray[i] = umlauts[0]
+				} else if (yeattextarray[i] == "u") {
+					yeattextarray[i] = umlauts[1]
+				} else if (yeattextarray[i] == "i") {
+					yeattextarray[i] = umlauts[2]
+				} else if (yeattextarray[i] == "o") {
+					yeattextarray[i] = umlauts[3]
+				} else if (yeattextarray[i] == "e") {
+					yeattextarray[i] = umlauts[4]
+				} else if (yeattextarray[i] == "y") {
+					yeattextarray[i] = umlauts[5]
+				}
+			}
+			let finishedconvert = String(yeattextarray).replace(/,/g, "");
+			
+			let output = document.getElementById("output")
+			output.innerHTML = finishedconvert
+		}
+	</script>
+</body>
+</html>
